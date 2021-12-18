@@ -2587,6 +2587,12 @@ input, select, textarea {
 			top: 0.25em;
 		}
 
+		.image.featured {
+			display: block;
+			width: 100%;
+			margin: 0 0 4em 0;
+		}
+
 		.image.right {
 			float: right;
 			margin: 0 0 1em 1.5em;
@@ -3472,7 +3478,6 @@ input, select, textarea {
 
 			#sidebar + #wrapper {
 				margin-left: 0;
-				padding-top: 3.5em;
 			}
 
 		}
