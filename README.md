@@ -1,2 +1,0 @@
-# portfolio
-HTML based portfolio 
