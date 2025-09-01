@@ -1,0 +1,104 @@
+# Portfolio Configuration
+personal:
+  name: "Sushmit Dutta"
+  title: "Engineer & Photographer based in SF"
+  instagram_url: "https://www.instagram.com/sduttaphotography/"
+  calendly_url: "https://calendly.com/sushmitdutta/1-on-1-with-sushmit"
+  linkedin_url: "https://www.linkedin.com/in/sushmit-dutta/"
+  resume_pdf: "images/Resume.pdf"
+  profile_image: "images/about.jpg"
+
+# Color palette - trustworthy and calm with custom warm accent
+colors:
+  primary: "#2C3E50"      # Deep blue-gray (trustworthy)
+  secondary: "#34495E"    # Darker blue-gray 
+  accent: "#3498DB"       # Professional blue
+  custom_accent: "#CC7C5E" # Custom warm accent (R204 G124 B94)
+  light_accent: "#5DADE2" # Lighter blue
+  background: "#F8F9FA"   # Clean light gray
+  text_dark: "#2C3E50"    # Main text
+  text_light: "#7F8C8D"   # Secondary text
+
+current_work:
+  - "Engineer + Lead @ lunar energy"
+  - text: "Fellow @ Interact"
+    link: "https://joininteract.com/"
+
+past_work:
+  - "Co-Founder @ Datum Agriculture"
+  - "Data Analyst @ World Research Institute (Energy Access)"
+  - "Engineer @ SuperSense (ONE Instant FILM)"
+  - "Platoon Sergeant @ Singapore Army"
+
+current_explorations:
+  - "Grid Resilience"
+  - "Energy Access"
+  - "4 x 5 Photography"
+  - text: "Overlap? Let's connect!"
+    link: "https://calendly.com/sushmitdutta"
+    italic: true
+
+proud_projects:
+  - "Built a home-battery system using recycled 18650 Batteries"
+  - "Determined high-potential areas for energy infrastructure in Zambia"
+  - "Revived a lost film format (Polaroid Peel Apart Film - FP100C)"
+  - "Designed platform for and with mental-health helpers"
+  - "Created a \"Magic Mirror\" for home"
+  - "Built an autonomous ramen maker with 4 friends"
+  - "Part of a team that launched a rocket to 10,000 ft"
+  - "Led a platoon of 113 troopers in the Singapore Army"
+  - "Finalist of MIT Ag Prize"
+  - text: "Winner OpenAI Climate Hackathon"
+    link: "https://venturebeat.com/ai/from-code-to-impact-crusoes-hackathon-reveals-ais-power-to-drive-change-in-energy-and-beyond/"
+  - "Collecting check from first customer"
+
+project_carousel:
+  - image_url: "images/projects/hackathon.jpg"
+    caption: "OpenAI Climate Hackathon Winner - Building a platform to connect banks with climate projects."
+  - image_url: "images/projects/datum.jpg"
+    caption: "Co-founded Datum Agriculture to simplify regulations for aquaculture farmers in the North East."
+  - image_url: "images/projects/rocketry.jpg"
+    caption: "Rocketry Competition - launched a rocket to 10,000 ft."
+  - image_url: "images/projects/ramen-maker.jpg"
+    caption: "Autonomous Ramen Maker - built with 4 friends."
+
+experience:
+  - title: "Engineer + Lead"
+    company: "Lunar Energy"
+    period: "2023 - Present"
+    details:
+    - "Program Lead / Architected: UL 1741 Power Control System (PCS), 15kWh System Configuration, WeatherWatch, and Fleet Management"
+    - "Built and trained the service and installation team to scale fleet operations"
+    - "Traveled to establish relationships with overseas contract manufacturers (CMs) in India and China to mitigate timeline risks"
+  
+  - title: "Co-Founder"
+    company: "Datum Agriculture (discontinued)"
+    period: "2022 - 2024"
+    details:
+      - "Simplifying regulations for aquaculture farmers in the North East"
+  
+  - title: "Scrum Leader"
+    company: "ALP Technologies"
+    period: "2023 -2024"
+    details:
+    - "Piloted lean methodology to transition the company’s prototype to a product through two-week sprints"
+    - "Led conversations to scale manufacturing through co-design with in-house engineers and factories"
+    - "Coordinated with accelerators for Seed A funding to build a test facility and manufacture initial prototypes"
+  
+  - title: "Sustainability Consulting"
+    company: "Accenture"
+    period: "Summer 2022"
+    details:
+    - "Reported on Environmental, Social, and Governance (ESG) outlooks of banks in Southeast Asia"
+    - "Developed an ESG comparison metric to rank companies in their respective fields"
+    - "Presented research at the Strategic Point conference in Singapore to represent Accenture"
+
+education:
+  - title: "Systems Engineering"
+    institution: "Olin College of Engineering"
+    coursework: "Technology Venture Capstone, Principles of Systems Engineering, User Experience Design, Power Electronics, Mechanical Systems, Computer Architecture, Discrete Math"
+
+footer:
+  template_credit:
+    text: "Not a front-end person - used this template"
+    link: "https://themewagon.com/themes/free-bootstrap-portfolio-website-template/"

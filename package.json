@@ -1,0 +1,22 @@
+{
+  "name": "sushmit-portfolio",
+  "version": "1.0.0",
+  "description": "Sushmit's portfolio website with YAML-driven content",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "nodemon build.js",
+    "serve": "python -m http.server 8000",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\""
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.0"
+  },
+  "keywords": ["portfolio", "yaml", "responsive", "performance"],
+  "author": "Sushmit Dutta",
+  "license": "MIT"
+}

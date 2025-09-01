@@ -1,373 +1,592 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sushmit Dutta</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sushmit Dutta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Engineer and Photographer in San Francisco - Systems Integration, Energy Access, and 4x5 Photography" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" as="style">
+    <link rel="preload" href="images/about.jpg" as="image">
+    
+    <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    <style>
+        /* Trustworthy color scheme with custom warm accents - Targeted overrides */
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #F8F9FA;
+            color: #2C3E50;
+        }
+        .container-wrap { max-width: 1200px; margin: 0 auto; }
+        .loading-screen { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(135deg, #CC7C5E 0%, #2C3E50 100%);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .fun-cursor { cursor: default; }
+        .custom-cursor {
+            display: none;
+        }
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ECF0F1, #F8F9FA);
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .floating-element {
+            position: absolute;
+            opacity: 0.08;
+            animation: float 8s ease-in-out infinite;
+        }
+        .floating-element:nth-child(odd) { animation-direction: reverse; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(90deg); }
+        }
+        .hover-glow { transition: all 0.3s ease; }
+        .hover-glow:hover { 
+            box-shadow: 0 4px 12px rgba(204, 124, 94, 0.25);
+            transform: translateY(-1px);
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #CC7C5E;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #CC7C5E; }
+        }
+        /* Targeted color overrides for your custom color */
+        .heading-meta span { color: #CC7C5E !important; }
+        a:hover { color: #CC7C5E !important; }
+        .panel-title a:hover { color: #CC7C5E !important; }
+        /* Fix accordion hover state text visibility */
+        .panel-heading a:hover {
+            background-color: #CC7C5E !important;
+            color: #ffffff !important;
+        }
+        .panel-heading a.collapsed:hover {
+            background-color: #CC7C5E !important;
+            color: #ffffff !important;
+            border: 1px solid #CC7C5E !important;
+        }
+        /* Project Carousel Styles */
+        .project-carousel {
+            margin-top: 40px;
+        }
+        .carousel-container {
+            position: relative;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.1);
+            min-height: 300px;
+        }
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        .carousel-slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(44, 62, 80, 0.8));
+            color: white;
+            padding: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            pointer-events: none;
+        }
+        .carousel-btn {
+            background: rgba(204, 124, 94, 0.8);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-btn:hover {
+            background: rgba(204, 124, 94, 1);
+            transform: scale(1.1);
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            background: #f8f9fa;
+            gap: 8px;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .carousel-dot.active {
+            background: #CC7C5E;
+            transform: scale(1.2);
+        }
+        @media screen and (max-width: 768px) {
+            .carousel-slides {
+                height: 250px;
+            }
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+    <!-- Load fonts asynchronously -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Load CSS asynchronously - excluding broken font files -->
+    <link rel="stylesheet" href="css/animate.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/icomoon.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/bootstrap.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/flexslider.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+</head>
+<body class="fun-cursor">
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    
+    <!-- Parallax Background -->
+    <div class="parallax-bg" id="parallaxBg"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div id="colorlib-page">
+        <div class="container-wrap">
+            <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+            <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+                <div class="text-center">
+                    <div class="author-img hover-glow" style="background-image: url(images/about.jpg);"></div>
+                    <h1 id="colorlib-logo"><a href="index.html">Sushmit Dutta</a></h1>
+                    <span class="position typewriter">Engineer & Photographer based in SF</span>
+                </div>
+                <nav id="colorlib-main-menu" role="navigation" class="navbar">
+                    <div id="navbar" class="collapse">
+                        <ul>
+                            <li><a href="#" data-nav-section="about" class="hover-glow">About Me</a></li>
+                            <li><a href="#" data-nav-section="projects" class="hover-glow">Projects</a></li>
+                            <li><a href="#" data-nav-section="resume" class="hover-glow">Resume</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="colorlib-footer" style="margin-top: auto;">
+                    <ul>
+                        <li><a target="_blank" href="https://calendly.com/sushmitdutta/1-on-1-with-sushmit" class="hover-glow"><i class="icon-calender"></i></a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/sushmit-dutta/" class="hover-glow"><i class="icon-linkedin2"></i></a></li>
+                    </ul>
+                </div>
+            </aside>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+            <div id="colorlib-main">
+                <section class="colorlib-about" data-section="about">
+                    <div class="colorlib-narrow-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="col-md-12">
+                                        <div class="about-desc">
+                                            <span class="heading-meta">A Little <span style="color:#CC7C5E;">About Me</span></span>
+                                            
+                                            <strong>Things I am working on:</strong>
+                                            <ul>
+                                                <li>Engineer + Lead @ lunar energy</li><li><a target="_blank" href="https://joininteract.com/">Fellow @ Interact</a></li>
+                                            </ul>
+                                            <br>
+                                            
+                                            <strong>Things I have worked on:</strong>
+                                            <ul>
+                                                <li>Co-Founder @ Datum Agriculture</li><li>Data Analyst @ World Research Institute (Energy Access)</li><li>Engineer @ SuperSense (ONE Instant FILM)</li><li>Platoon Sergeant @ Singapore Army</li>
+                                            </ul>
+                                            <br>
+                                            
+                                            <strong>Current Explorations:</strong>
+                                            <ul>
+                                                <li>Grid Resilience</li><li>Energy Access</li><li>4 x 5 Photography</li><li><i><a target="_blank" href="https://calendly.com/sushmitdutta">Overlap? Let's connect!</a></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+                <section class="colorlib-about" data-section="projects">
+                    <div class="colorlib-narrow-content">
+                        <div class="row">
+                            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                                <span class="heading-meta"><span style="color:#CC7C5E;">Projects</span> I Am Proud Of</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="row animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="col-md-12">
+                                        <div class="about-desc">
+                                            <ul style="column-count:1; margin-top: 15px;">
+                                                <li>Built a home-battery system using recycled 18650 Batteries</li><li>Determined high-potential areas for energy infrastructure in Zambia</li><li>Revived a lost film format (Polaroid Peel Apart Film - FP100C)</li><li>Designed platform for and with mental-health helpers</li><li>Created a "Magic Mirror" for home</li><li>Built an autonomous ramen maker with 4 friends</li><li>Part of a team that launched a rocket to 10,000 ft</li><li>Led a platoon of 113 troopers in the Singapore Army</li><li>Finalist of MIT Ag Prize</li><li><a target="_blank" href="https://venturebeat.com/ai/from-code-to-impact-crusoes-hackathon-reveals-ais-power-to-drive-change-in-energy-and-beyond/">Winner OpenAI Climate Hackathon</a></li><li>Collecting check from first customer</li>
+                                            </ul>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="project-carousel animate-box" data-animate-effect="fadeInRight">
+                                    <div class="carousel-container">
+                                        <div class="carousel-slides" id="projectCarousel">
+                                            </div>
+                                        <div class="carousel-nav">
+                                            <button class="carousel-btn prev" id="prevBtn">‹</button>
+                                            <button class="carousel-btn next" id="nextBtn">›</button>
+                                        </div>
+                                        <div class="carousel-dots" id="carouselDots"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+                <section class="colorlib-education" data-section="resume">
+                    <div class="colorlib-narrow-content">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                                <span class="heading-meta">Resume - <a href="images/Resume.pdf" target="_blank" class="hover-glow">.PDF</a></span>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                                <div class="fancy-collapse-panel">
+                                    <strong>Experience:</strong><br><br>
+                                    <div class="panel-group" id="experienceAccordion" role="tablist" aria-multiselectable="true">
+                                        
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading0">
+                <h4 class="panel-title">
+                    <a class="collapsed hover-glow" data-toggle="collapse" data-parent="#experienceAccordion" 
+                       href="#collapse0" aria-expanded="false" aria-controls="collapse0">
+                        Engineer + Lead | <strong>Lunar Energy</strong>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body">
+                    <p><i>2023 - Present</i></p>
+                    <ul>
+                        <li>Program Lead / Architected: UL 1741 Power Control System (PCS), 15kWh System Configuration, WeatherWatch, and Fleet Management</li><li>Built and trained the service and installation team to scale fleet operations</li><li>Traveled to establish relationships with overseas contract manufacturers (CMs) in India and China to mitigate timeline risks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading1">
+                <h4 class="panel-title">
+                    <a class="collapsed hover-glow" data-toggle="collapse" data-parent="#experienceAccordion" 
+                       href="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                        Co-Founder | <strong>Datum Agriculture (discontinued)</strong>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body">
+                    <p><i>2022 - 2024</i></p>
+                    <ul>
+                        <li>Simplifying regulations for aquaculture farmers in the North East</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading2">
+                <h4 class="panel-title">
+                    <a class="collapsed hover-glow" data-toggle="collapse" data-parent="#experienceAccordion" 
+                       href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Scrum Leader | <strong>ALP Technologies</strong>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body">
+                    <p><i>2023 -2024</i></p>
+                    <ul>
+                        <li>Piloted lean methodology to transition the company’s prototype to a product through two-week sprints</li><li>Led conversations to scale manufacturing through co-design with in-house engineers and factories</li><li>Coordinated with accelerators for Seed A funding to build a test facility and manufacture initial prototypes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading3">
+                <h4 class="panel-title">
+                    <a class="collapsed hover-glow" data-toggle="collapse" data-parent="#experienceAccordion" 
+                       href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Sustainability Consulting | <strong>Accenture</strong>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                <div class="panel-body">
+                    <p><i>Summer 2022</i></p>
+                    <ul>
+                        <li>Reported on Environmental, Social, and Governance (ESG) outlooks of banks in Southeast Asia</li><li>Developed an ESG comparison metric to rank companies in their respective fields</li><li>Presented research at the Strategic Point conference in Singapore to represent Accenture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
 
-	</head>
-	<body>
-	<div id="colorlib-page">
-		<div class="container-wrap">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<div class="text-center">
-				<div class="author-img" style="background-image: url(images/about.jpg);"></div>
-				<h1 id="colorlib-logo"><a href="index.html">Sushmit Dutta</a></h1>
-				<span class="position">Engineer / <a target=”_blank” href="https://www.instagram.com/sduttaphotography/">Photographer</a> in San Francisco</span>
-			</div>
-			<nav id="colorlib-main-menu" role="navigation" class="navbar">
-				<div id="navbar" class="collapse">
-					<ul>
-						<li><a href="#" data-nav-section="about">About Me</a></li>
-						<li><a href="#" data-nav-section="projects">Projects</a></li>
-						<li><a href="#" data-nav-section="resume">Resume</a></li>
-					</ul>
-				</div>
-			</nav>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div class="colorlib-footer">
-				<ul>
-					<li><a target=”_blank” href="https://calendly.com/sushmitdutta/1-on-1-with-sushmit"><i class="icon-calender"></i></a></li>
-					<li><a target=”_blank” href="https://www.linkedin.com/in/sushmit-dutta/"><i class="icon-linkedin2"></i></a></li>
-				</ul>
-			</div>
-		</aside>
+                            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                                <div class="fancy-collapse-panel">
+                                    <strong>Education:</strong><br><br>
+                                    <div class="panel-group" id="educationAccordion" role="tablist" aria-multiselectable="true">
+                                        
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="eduHeading0">
+                <h4 class="panel-title">
+                    <a class="collapsed hover-glow" data-toggle="collapse" data-parent="#educationAccordion" 
+                       href="#eduCollapse0" aria-expanded="false" aria-controls="eduCollapse0">
+                        Systems Engineering | <strong>Olin College of Engineering</strong>
+                    </a>
+                </h4>
+            </div>
+            <div id="eduCollapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="eduHeading0">
+                <div class="panel-body">
+                    <p>Coursework: Technology Venture Capstone, Principles of Systems Engineering, User Experience Design, Power Electronics, Mechanical Systems, Computer Architecture, Discrete Math</p>
+                </div>
+            </div>
+        </div>
+    
+                                    </div>
+                                    <br><br><br><br><br><br>
+                                    <p>Not a front-end person - used <a href="https://themewagon.com/themes/free-bootstrap-portfolio-website-template/" target="_blank" class="hover-glow">this</a> template</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 
-		<div id="colorlib-main">
+    
+    <script>
+    // --- BEGIN REPLACEMENT ---
 
-			<section class="colorlib-about" data-section="about">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row animate-box" data-animate-effect="fadeInLeft">
-								<div class="col-md-12">
-									<div class="about-desc">
-										<span class="heading-meta">A Little <span style="color:#4F7CAC;">About Me</span></span>
-										<strong>Things I am working on:</strong>
-										<ul>
-											<li>Systems Integration @ Lunar Energy</li>
-											<li>Engineer @ SuperSense (OneInstant)</li>
-											<li>Volunteer Data Analyst @ World Research Institute (Energy Access)</li>
-										  </ul>
-										  <br>
-										<strong>Things I have worked on:</strong>
-										<ul>
-											<li>Founder @ Datum Agriculture</li>
-											<li>Systems Engineer @ Alp Technologies</li>
-											<li>Platoon Sergeant @ Singapore Army</li>
-										  </ul>
-										<br>
-										<strong>Current Explorations:</strong>
-										<ul>
-											<li>Grid Resilience</li>
-											<li>Energy Access</li>
-											<li>4 x 5 Photography</li>
-											<li><i>Overlap? Let's <a target=”_blank” href="https://calendly.com/sushmitdutta">connect</a>!</i></li>
-										  </ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+    // Pass carousel data from YAML config to the browser
+    const projectCarouselData = [{"image_url":"images/projects/hackathon.jpg","caption":"OpenAI Climate Hackathon Winner - Building a platform to connect banks with climate projects."},{"image_url":"images/projects/datum.jpg","caption":"Co-founded Datum Agriculture to simplify regulations for aquaculture farmers in the North East."},{"image_url":"images/projects/rocketry.jpg","caption":"Rocketry Competition - launched a rocket to 10,000 ft."},{"image_url":"images/projects/ramen-maker.jpg","caption":"Autonomous Ramen Maker - built with 4 friends."}];
 
-			<section class="colorlib-about" data-section="projects">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row animate-box" data-animate-effect="fadeInLeft">
-								<div class="col-md-12">
-									<div class="about-desc">
-										<span class="heading-meta"><span style="color:#4F7CAC;">Projects</span> I Am Proud Of</span>
-										<ul style="column-count:1">
-											<li>Building a home-battery system using recycled 18650 Batteries</li>
-											<li>Developing BMS Algorithm to determine SOC of Li-ion Batteries</li>
-											<li>Determining high-potential areas for energy infrastructure in Zambia</li>
-											<li>Bringing back a lost film format (Polaroid Peel Apart Film - FP100C)</li>
-											<li>Designed platform for and with mental-health helpers</li>
-											<li>Creating a "Magic Mirror" for home</li>
-											<li>Built an autonomous ramen maker with 4 friends</li>
-											<li>On a team that launched a rocket to 10,000 ft</li>
-											<li>Leading 113 troopers in the army</li>
-											<li>Finalist of MIT Ag Prize</li>
-											<li>Winning OpenAI Climate Hackathon <a target=”_blank” href="https://venturebeat.com/ai/from-code-to-impact-crusoes-hackathon-reveals-ais-power-to-drive-change-in-energy-and-beyond/">(Link)</a></li>
-											<li>Collecting check from first customer</li>
-										  </ul>
-										  <br>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+    // Full height sidebar logic
+    function setFullHeight() {
+        const elements = document.querySelectorAll('.js-fullheight');
+        const windowHeight = window.innerHeight;
+        elements.forEach(el => {
+            el.style.height = windowHeight + 'px';
+        });
+    }
 
+    // Create subtle floating elements
+    function createFloatingElements() {
+        const container = document.getElementById('floatingElements');
+        const symbols = ['⚡', '🔋', '📸', '🌱', '💡', '⚙️'];
+        
+        for (let i = 0; i < 6; i++) {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = Math.random() * 100 + '%';
+            element.style.fontSize = (Math.random() * 15 + 25) + 'px';
+            element.style.animationDelay = Math.random() * 8 + 's';
+            container.appendChild(element);
+        }
+    }
 
-			<section class="colorlib-education" data-section="resume">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-10 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Resume - <a href="images/Resume.pdf" target="_blank">.PDF</a></span>
-						</div>
-					</div>
-					<div class="row">
-						
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="fancy-collapse-panel">
-								<strong>Experience:</strong>
-								<br>
-								<br>
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingZero">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
-													Engineering | <strong>Lunar Energy</strong>
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseZero" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingZero">
-									        <div class="panel-body">
-												<p><i>Intern - Summer 2023, Full Time - Present</i></p>
-												<ul>
-													<li>Developed the State-of-Charge (SOC) algorithm in conjunction with the battery team using Round Trip Efficiency (RTE) testing</li>
-													<li>Designed and conducted tests to achieve compliance standards, and release firmware candidates for alpha systems</li>
-													<li>Supported solving mesh and start-up issues for units used for maximum power point tracking (MPPT)</li>
-													<li>Created AWS Lambda functions to gather CAN logs from remote sites</li>
-													<li>Generated JIRA workflow to streamline cross-team testing</li>
-												</ul>
-									        </div>
-									    </div>
-									    <div class="panel-heading" role="tab" id="headingOne">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-													Founder | <strong>Datum Agriculture</strong>
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									        <div class="panel-body">
-												<p><i>Since 2022</i></p>
-												<ul>
-													<li>Simplifying regulations for aquaculture farmers in the North East</li>
-												</ul>
-									        </div>
-									    </div>
-										<div class="panel-heading" role="tab" id="headingTwo">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-													Systems Engineer + Scrum Leader   | <strong>ALP Technologies</strong>
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-									        <div class="panel-body">
-												<p><i>Summer 2023 to Summer 2024</i></p>
-												<ul>
-													<li>Piloted the lean methodology to turn company prototype into product through two week sprints</li>
-													<li>Led conversations to scale manufacturing by co-designing with in-house engineers and factories</li>
-													<li>Coordinated with accelerators for Seed A funding to build test facility and manufacture initial prototypes</li>
-												</ul>
-									        </div>
-									    </div>
-										<div class="panel-heading" role="tab" id="headingThree">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-													Sustainability Consulting  | <strong>Accenture</strong>
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-									        <div class="panel-body">
-												<p><i>Summer 2022</i></p>
-												<ul>
-													<li>Reported on Environmental, Social, and Governance (ESG) outlooks of banks in South East Asia</li>
-													<li>Developed ESG comparison metric to rank companies in their respective fields</li>
-													<li>Presented research at Strategic Point conference in Singapore to represent Accenture</li>
-												</ul>
-									        </div>
-									    </div>
-										<div class="panel-heading" role="tab" id="headingFour">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-													Machine Learning Intern  | <strong>A_i Robotics</strong>
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-									        <div class="panel-body">
-												<p><i>Spring 2021</i></p>
-												<ul>
-													<li>Designed tests for deterministic algorithm used by on-board sensors</li>
-													<li>Conducted failure-analysis on edge-cases for deployment in parking lots</li>
-													<li>Led marketing campaign (website development, promotional video) to attract investors</li>
-												</ul>
-									        </div>
-									    </div>
-									</div>
-								</div>
-							</div>
-						</div>
+    // Subtle parallax effect
+    document.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const bg = document.getElementById('parallaxBg');
+        if (bg) {
+            bg.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+    });
 
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="fancy-collapse-panel">
-								<strong>Projects:</strong>
-								<br>
-								<br>
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingFive">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-													Mental-Health App
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-									        <div class="panel-body">
-												<p>Co-designing a platform with ‘Inspired Relief’ in Boston for BIPOC communities to bring together helpers and seekers </p>
-									        </div>
-									    </div>
-										<div class="panel-heading" role="tab" id="headingSix">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-													Service-Animal Trainers Research
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-									        <div class="panel-body">
-												<p>Held the role of a Project Manager in a team of five where we created personas, and attribute spectrums through interviews</p>
-									        </div>
-									    </div>
-										<div class="panel-heading" role="tab" id="headingSeven">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-													Rocketry Recovery Team Lead
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-									        <div class="panel-body">
-												<p>Led a successful re-design and fabrication of the recovery system based on competition requirements on a team of four engineers </p>
-									        </div>
-									    </div>
-									</div>
-								</div>
-							</div>
-						</div>
+    // Initialize everything on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Run setup functions
+        createFloatingElements();
+        setFullHeight();
+        window.addEventListener('resize', setFullHeight); // Re-run on resize
 
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="fancy-collapse-panel">
-								<strong>Education:</strong>
-								<br>
-								<br>
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingEight">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-													Systems Engineering | <strong>Olin College of Engineering</strong> 
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-									        <div class="panel-body">
-												<p>Coursework: Technology-Venture Capstone, Principle of Systems Engineering, User Experience Design, Mechanical Systems, Computer Architecture, Discrete Math</p>
-									        </div>
-									    </div>
-									</div>
-								</div>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<p> Not a front-end person - used <a href="https://themewagon.com/themes/free-bootstrap-portfolio-website-template/">this</a> template<ul></ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			
+        // Hide loading screen
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }
+        }, 1000);
+        
+        // --- CAROUSEL LOGIC ---
+        const slidesContainer = document.getElementById('projectCarousel');
+        const dotsContainer = document.getElementById('carouselDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
 
-		</div><!-- end:colorlib-main -->
-	</div><!-- end:container-wrap -->
-	</div><!-- end:colorlib-page -->
+        if (slidesContainer && projectCarouselData && projectCarouselData.length > 0) {
+            let currentIndex = 0;
 
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Owl carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+            // 1. Populate slides and dots from the config data
+            projectCarouselData.forEach((item, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.style.backgroundImage = `url('${item.image_url}')`;
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'carousel-slide-overlay';
+                overlay.textContent = item.caption;
+                
+                slide.appendChild(overlay);
+                slidesContainer.appendChild(slide);
 
-	</body>
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                dot.addEventListener('click', () => showSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            // 2. Function to show a specific slide
+            function showSlide(index) {
+                // Bounds checking
+                if (index >= slides.length) index = 0;
+                if (index < 0) index = slides.length - 1;
+
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+
+            // 3. Event Listeners for buttons
+            prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+            // 4. Show the first slide initially
+            showSlide(0);
+        }
+    });
+
+    // --- END REPLACEMENT ---
+    </script>
+
+    <script defer src="js/jquery.min.js"></script>
+    <script defer src="js/bootstrap.min.js"></script>
+</body>
 </html>
-
